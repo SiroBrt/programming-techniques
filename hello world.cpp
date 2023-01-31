@@ -2,5 +2,5 @@
 using namespace std;
 
 int main(){
-	cout << "Hello World" <<endl <<"This is a commit test";
+	cout << "Hello World" <<endl;
 }
