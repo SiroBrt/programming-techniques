@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int length=3;
+int length=10;
 
 void ordenar(int v[]){
     //qué diablos es esto -Yago 2023    Es bubble sort
