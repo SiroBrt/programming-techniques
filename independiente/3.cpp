@@ -15,5 +15,4 @@ int main(){
             cout <<"i=" <<i <<" num=" <<num <<endl;
         }
     }
-    cout <<factor;
 }
