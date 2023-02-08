@@ -15,11 +15,11 @@ int main(){
     v.insert(v.begin(),7);              //add something (7) at the position specified (v.begin)
     v.erase(v.begin+4);                 //remove the element in entry given(1+4)
     */
-
     //normal print
     for(int i=0; i<v.size(); i++){
         cout <<v[i] <<" ";
     }
+    cout <<endl <<"done" <<endl;
 
     //print with iterator
     vector<int>::iterator i;
