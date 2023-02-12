@@ -1,9 +1,12 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 int main(){
-    int n = 56;
-    string s = to_string(n);
-    cout <<s;
+    string str="1234567890";
+    int num;
+    for(int i=0;i<10;i++){
+        num=stoi(str.substr(i,2));
+        cout <<num <<endl;
+    }
 }
