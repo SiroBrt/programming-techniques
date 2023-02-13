@@ -35,5 +35,5 @@ int main(){
         factores=factors(triangulo);
         cout <<triangulo <<"->" <<factores <<endl;
     }while(factores<500);
-    cout <<num;
+    cout <<triangulo;
 }
