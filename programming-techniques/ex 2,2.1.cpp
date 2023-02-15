@@ -12,11 +12,13 @@ int main(){
     cin >>pair2.first;
     cout <<"Introduce second value: ";
     cin >>pair2.second;
+
     aux.first=pair1.first;
     aux.second=pair1.second;
     pair1.first=pair2.first;
     pair1.second=pair2.second;
     pair2.first=aux.first;
     pair2.second=aux.second;
+    
     cout <<pair1.first <<" " <<pair1.second <<endl <<pair2.first <<" " <<pair2.second;
 }
