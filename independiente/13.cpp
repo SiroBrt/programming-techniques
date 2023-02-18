@@ -114,7 +114,8 @@ int main(){
             break;
         }
         newSum=sum;
-        sum+=(unsigned long long int)stoi(numeros[i].substr(0,9))*10+stoi(numeros[i].substr(9,1));
-        cout <<sum <<endl;
+        sum+=(unsigned long long int)stoi(numeros[i].substr(0,9))*1000+stoi(numeros[i].substr(9,3));
+        cout <<newSum <<endl;
     }
+    cout <<"final: " <<sum;
 }
