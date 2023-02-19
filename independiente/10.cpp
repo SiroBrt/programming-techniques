@@ -1,11 +1,9 @@
+/*The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+Find the sum of all the primes below two million.*/
 #include <iostream>
 #include <cmath>
 #include <vector>
 using namespace std;
-/*The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
-Find the sum of all the primes below two million.
-*/
-
 vector <long int> primes={2};
 int isPrime;
 long int upperBound=2000000;
