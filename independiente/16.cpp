@@ -32,7 +32,7 @@ int main(){
     }
     cout <<"2^" <<exponent <<"=";
     for(int k=estimatedDigits-1;k>=0;k--){
-        cout <<digits[k];
+        cout <<digits[k] <<" ";
     }
     for(int k=estimatedDigits-1;k>=0;k--){
         sum=sum+sumarDigitos(digits[k]);
