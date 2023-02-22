@@ -16,7 +16,7 @@ int sumarDigitos(int input){
 
 int main(){
     int estimatedChunks;
-    estimatedChunks=2*goal/chunkSize+1;     //2*goal because each number will increase up to 2 digits
+    estimatedChunks=2*goal/chunkSize+1;
     long int digits[estimatedChunks];
     digits[0]=1;
     for(int i=1;i<estimatedChunks;i++){
@@ -28,8 +28,7 @@ int main(){
             aux=aux*i;
             if(aux>=pow(10,chunkSize)){
                 digits[j+1]=digits[j+1]+floor(aux/pow(10,chunkSize));
-                digits[j]=aux-pow(10,chunkSize)*floor(aux/pow(10,chunkSize));        //arreglar para cuando la llevada es de mas de 1
-            }else{
+                digits[j]=aux-pow(10,chunkSize)*floor(aux/pow(10,chunkSize));
                 digits[j]=aux;
             }
         }
