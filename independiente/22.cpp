@@ -1,23 +1,21 @@
 #include <iostream>
 #include <fstream>
 #include <set>
+#include <string.h>
 using namespace std;
 
 int main(){
     fstream file;
-    file.open("p022_names.txt");
+    file.open("meVoyAMatar.txt");
     char ch;
-    string name;
-    set <string> texto;
+    string texto;
+    set <string> nombres;
     while (true) {
-		file >>ch;
+		file >>texto;
         if (file.eof()){
 			break;
 		}else{
-            
+            cout <<texto <<" " <<texto.find(",") <<endl;
         }
-    }
-    for(auto i:texto){
-        cout <<i;
     }
 }
