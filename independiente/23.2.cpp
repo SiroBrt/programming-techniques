@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 map <int,int> numeros,todos;
-int limit=28123,found;
+int limit=223,found;
 long int sum=0;
 vector <int> elegidos;
 
@@ -38,5 +38,5 @@ int main(){
     for(int i=1;i<=limit;i++){
         sum+=i*todos[i];
     }
-    cout <<endl <<"total=" <<sum;
+    //cout <<endl <<"total=" <<sum;
 }
