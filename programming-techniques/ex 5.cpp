@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
 
 class Date{
@@ -122,6 +123,26 @@ class Date{
     long long int convert(){
         return 10000*year+100*month+day;
     }
+    //static thingy with string
+    static string showDate(int a){
+        string output,aux;
+        aux=to_string(a);
+        output=aux.substr(aux.length()-2,2)+"/"+aux.substr(aux.length()-4,2)+"/"+aux.substr(0,aux.length()-4);
+        return output;
+    }
+    //other static thingy (sort)
+    static void sort(vector <int> &v){
+        int aux;
+        for (int i=0; i<v.size()-1; i++){
+            for (int j=0; j<v.size()-i-1; j++){
+                if (v[j]>v[j+1]){
+                    aux=v[j];
+                    v[j]=v[j+1];
+                    v[j+1]=aux;
+                }
+            }
+        }
+    }
 };  
 
 int main(){
@@ -140,5 +161,9 @@ int main(){
     */
     Date fecha1(1,2,3);
     Date fecha2(1,2,3);
-    cout <<fecha1.convert();
+    vector <int> output,v={20107,20109,20103,20101,20108,20106,20102,20104,20105,10110};
+    Date::sort(v);
+    for(auto i:v){
+        cout <<Date::showDate(i) <<endl;
+    }
 }

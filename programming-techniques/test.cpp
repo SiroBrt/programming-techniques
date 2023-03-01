@@ -14,7 +14,7 @@ string toBinary(int n){
 
 int main(){
     int num;
-    num=0;
+    num=63;
     auto binary=toBinary(num);
 
 }
