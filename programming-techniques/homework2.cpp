@@ -68,7 +68,7 @@ public:
     }
     void printFraction(){
         if(denominator==0){
-            cout <<"not possible print" <<endl;
+            cout <<"not possible (indetermination of type num/0)" <<endl;
             pararTodo=1;
         }else if(numerator==0){
             cout <<"0";
@@ -116,7 +116,7 @@ public:
             numerator=numerator/aux;
             denominator=denominator/aux;
         }else{
-            denominator=0;      //to trigger the error message
+            pararTodo=1;
         }
     }
 };
@@ -128,7 +128,7 @@ int main(){
     while(seguir){
         pararTodo=0;
         cout <<"--------------------------" <<endl;
-        cout <<"1.Addition \n2.Multiplication \n3.Division \n4.End \nChoose an operation: ";
+        cout <<"Menu: \n1.Addition \n2.Multiplication \n3.Division \n4.End \nChoose an operation: ";
         cin >>chosen;
         if(chosen=="1"){
             cout <<"--------------------------" <<endl;
