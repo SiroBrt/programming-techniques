@@ -41,29 +41,43 @@ public:
     //functions
     static void readFraction(Fraction &f){
         int a,b;
+        string str1,str2;
         cout <<"Introduce the numerator: ";
-        cin >>a;
+        cin >>str1;
         cout <<"Introduce the denominator: ";
-        cin >>b;
-        //simplificar
-        if(b<0){
-            b=-b;
-            a=-a;
-        }
-        int r=mcd(a,b);
-        f.numerator=a/r;
-        f.denominator=b/r;
-        if(f.denominator==0){
+        cin >>str2;
+        try{
+            a=stoi(str1);
+            b=stoi(str2);
+            //simplificar
+            if(b<0){
+                b=-b;
+                a=-a;
+            }
+            int r=mcd(a,b);
+            f.numerator=a/r;
+            f.denominator=b/r;
+            if(f.denominator==0){
+                throw (1);
+            }    
+        }catch(...){
             pararTodo=1;
         }
+        
+        
     }
     void printFraction(){
         if(denominator==0){
-            cout <<"not possible" <<endl;
+            cout <<"not possible print" <<endl;
             pararTodo=1;
         }else if(numerator==0){
-            cout <<"0" <<endl;
+            cout <<"0";
         }else{
+            //ponemos el menos arriba
+            if(denominator<0){
+                numerator=-numerator;
+                denominator=-denominator;
+            }
             //si no hay posibles errores se imprime
             if(numerator<0){
                 cout <<"(" <<numerator;
@@ -112,6 +126,7 @@ int main(){
     string chosen;
     bool seguir=1;
     while(seguir){
+        pararTodo=0;
         cout <<"--------------------------" <<endl;
         cout <<"1.Addition \n2.Multiplication \n3.Division \n4.End \nChoose an operation: ";
         cin >>chosen;
@@ -128,13 +143,43 @@ int main(){
                 cout <<"=";
                 c.printFraction();
                 cout <<endl <<endl;
+            }else{
+                cout <<"not possible \n";
             }
         }else if(chosen=="2"){
             cout <<"--------------------------" <<endl;
+            Fraction a,b,c;
+            Fraction::readFraction(a);
+            Fraction::readFraction(b);
+            c.multiplication(a,b);
+            if(pararTodo==0){
+                a.printFraction();
+                cout <<"*";
+                b.printFraction();
+                cout <<"=";
+                c.printFraction();
+                cout <<endl <<endl;
+            }else{
+                cout <<"not possible \n";
+            }
         }else if(chosen=="3"){
             cout <<"--------------------------" <<endl;
+            Fraction a,b,c;
+            Fraction::readFraction(a);
+            Fraction::readFraction(b);
+            c.division(a,b);
+            if(pararTodo==0){
+                a.printFraction();
+                cout <<"/";
+                b.printFraction();
+                cout <<"=";
+                c.printFraction();
+                cout <<endl <<endl;
+            }else{
+                cout <<"not possible \n";
+            }
         }else if(chosen=="4"){
-            cout <<"--------------------------" <<endl;
+            cout <<"Goodbye \n" <<"--------------------------" <<endl;
             seguir=0;
         }else{
             cout <<"Invalid option" <<endl;
