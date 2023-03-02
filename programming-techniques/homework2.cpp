@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 using namespace std;
+bool pararTodo=0;
 
 int mcd(int a,int b) {
     if((a==0)||(b==0)){
@@ -44,26 +46,37 @@ public:
         cout <<"Introduce the denominator: ";
         cin >>b;
         //simplificar
+        if(b<0){
+            b=-b;
+            a=-a;
+        }
         int r=mcd(a,b);
         f.numerator=a/r;
         f.denominator=b/r;
+        if(f.denominator==0){
+            pararTodo=1;
+        }
     }
     void printFraction(){
-        if(numerator==0){
-            cout <<"0" <<endl;
-        }else if(denominator==0){
+        if(denominator==0){
             cout <<"not possible" <<endl;
+            pararTodo=1;
+        }else if(numerator==0){
+            cout <<"0" <<endl;
         }else{
             //si no hay posibles errores se imprime
-            if(denominator<0){
-                cout <<"-" <<numerator <<"/" <<-denominator <<endl;
-            }else{
-                cout <<numerator;
+            if(numerator<0){
+                cout <<"(" <<numerator;
                 //para no imprimir enteros como fracciones
                 if(denominator!=1){
                     cout <<"/" <<denominator;
                 }
-                cout <<endl;
+                cout <<")";
+            }else{
+                cout <<numerator;
+                if(denominator!=1){
+                    cout <<"/" <<denominator;
+                }
             }
         }
     }
@@ -82,7 +95,7 @@ public:
         denominator=denominator/aux;
     }
     void division(Fraction a,Fraction b){
-        if((a.denominator!=0)&&(b.denominator!=0)){
+        if(b.denominator!=0){
             numerator=a.numerator*b.denominator;
             denominator=a.denominator*b.numerator;
             int aux=mcd(numerator,denominator);
@@ -96,7 +109,35 @@ public:
 
 int main(){
     Fraction a,b,c;
-    while(true){
-        cout <<"Choose an operation:" <<endl;
-    }    
+    string chosen;
+    bool seguir=1;
+    while(seguir){
+        cout <<"--------------------------" <<endl;
+        cout <<"1.Addition \n2.Multiplication \n3.Division \n4.End \nChoose an operation: ";
+        cin >>chosen;
+        if(chosen=="1"){
+            cout <<"--------------------------" <<endl;
+            Fraction a,b,c;
+            Fraction::readFraction(a);
+            Fraction::readFraction(b);
+            c.addition(a,b);
+            if(pararTodo==0){
+                a.printFraction();
+                cout <<"+";
+                b.printFraction();
+                cout <<"=";
+                c.printFraction();
+                cout <<endl <<endl;
+            }
+        }else if(chosen=="2"){
+            cout <<"--------------------------" <<endl;
+        }else if(chosen=="3"){
+            cout <<"--------------------------" <<endl;
+        }else if(chosen=="4"){
+            cout <<"--------------------------" <<endl;
+            seguir=0;
+        }else{
+            cout <<"Invalid option" <<endl;
+        }
+    }
 }
