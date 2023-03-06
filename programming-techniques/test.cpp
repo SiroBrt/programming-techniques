@@ -1,21 +1,9 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-string toBinary(int n){
-    string r;
-    while(n!=0){
-        r=(n%2==0 ?"0":"1")+r;
-        n/=2;
-    }
-    cout <<"r.length=" <<r.length() <<" r=" <<r <<endl;
-    return r;
-}
 
 int main(){
     int num;
-    num=63;
-    auto binary=toBinary(num);
-
+    num=105;
+    cout <<(num<100 ?"0":"1");
 }
-//11111111111111
