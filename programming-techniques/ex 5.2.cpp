@@ -38,34 +38,68 @@ class Polynomial{
     Polynomial operator+(Polynomial a){
         Polynomial output;
         int limite=max(degree,a.degree);
-        for(int i=0;i<=limite;i++){
+        for(int i=coeficient.size()-1;i<=limite;i++){
+            coeficient.push_back(0);
+        }
+        for(int i=a.coeficient.size()-1;i<=limite;i++){
+            a.coeficient.push_back(0);
+        }
+        output.coeficient[0]=coeficient[0]+a.coeficient[0];
+        for(int i=1;i<=limite+1;i++){
             output.coeficient.push_back(coeficient[i]+a.coeficient[i]);
             output.degree=i;
         }
         return output;
     }
     static void printPolynomial(Polynomial input){
+        bool started=0;
         cout <<"P(x)=";
         if(input.getCoef(0)!=0){
             cout <<input.getCoef(0);
+            started=1;
+        }
+        if(input.getCoef(1)!=0){
+            if(started==1 && input.getCoef(1)>0){
+                cout <<"+";
+            }
+            if(input.getCoef(1)!=1){
+                cout <<input.getCoef(1);
+            }
+            cout <<"x";
+            started=1;
         }
         //hay que mejorar los if para que no ponga x^1,que deje negativos...
-        for(int i=1;i<=input.degree;i++){
-            if(input.getCoef(i)!=0 && input.getCoef(i)!=1){
-                cout <<"+" <<input.getCoef(i) <<"x^" <<i;
-            }else if(input.getCoef(i)==1){
-                cout <<"+x^" <<i;
+        for(int i=2;i<=input.degree;i++){
+            if(input.getCoef(i)==1){
+                if(started==1){
+                    cout <<"+";
+                }
+                cout <<"x^" <<i;
+                started=1;
+            }else if(input.getCoef(i)==-1){ 
+                cout <<"-x^" <<i;
+                started=1;
+            }else if(input.getCoef(i)!=0){
+                if(started==1  && input.getCoef(i)>0){
+                    cout <<"+";
+                }
+                cout <<input.getCoef(i) <<"x^" <<i;
+                started=1;
             }
+        }
+        if(started==0){
+            cout <<"0";
         }
     }
 
 };
 
 int main(){
-    Polynomial a;
+    Polynomial a,b;
     for(int i=0;i<=3;i++){
-        a.setCoef(i,i+1);
+        a.setCoef(i,1);
+        b.setCoef(2*i,-1);
     }
-    cout <<a.getDegree() <<" ";
-    Polynomial::printPolynomial(a);
+    Polynomial::printPolynomial(b);
+    cout <<endl <<"P(2)=" <<b.evaluate(-1);
 }
