@@ -4,7 +4,6 @@
 #include <list>
 #include <vector>
 using namespace std;
-pair <string,int> pair1,pair2,aux;
 
 void showAllList(list <int> input){
     for(auto i:input){
@@ -42,6 +41,7 @@ int main(){
     showAllSet(set2);
     
     //pair
+    pair <string,int> pair1,pair2,aux;
     cout <<"Introduce first string: ";
     cin >>pair1.first;
     cout <<"Introduce first value: ";
